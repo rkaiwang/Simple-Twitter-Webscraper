@@ -29,12 +29,9 @@ def main():
     tokenizer = nltk.tokenize.RegexpTokenizer('\w+')
     tokens = tokenizer.tokenize(tweets_string)
 
-    # A new list to hold the lowercased words
-    words = []
-
     # Looping through the tokens and make them lower case
-    for word in tokens:
-        words.append(word.lower())
+    words = [word.lower() for word in tokens if word.isalpha()]
+    # Only adds words that are formed by alphabet letters to the list word
 
     nltk.download('stopwords')
     stopwords = nltk.corpus.stopwords.words('english')
